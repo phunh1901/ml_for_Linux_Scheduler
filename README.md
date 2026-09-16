@@ -24,7 +24,7 @@
 10. [Hướng dẫn cài đặt & Chạy dự án (Installation & Usage)](#-hướng-dẫn-cài-đặt--chạy-dự-án-installation--usage)
 11. [Hướng dẫn sử dụng Jupyter Notebooks](#-hướng-dẫn-sử-dụng-jupyter-notebooks)
 12. [Định hướng phát triển tương lai (Future Roadmap)](#-định-hướng-phát-triển-tương-lai-future-roadmap)
-13. [Thông tin tác giả & Giấy phép (Author & License)](#-thông-tin-tác-giả--giấy-phép-author--license)
+13. [Giấy phép (License)](#-giấy-phép-license)
 
 ---
 
@@ -82,14 +82,14 @@ Dữ liệu được thu thập trực tiếp từ hệ điều hành qua `src/c
 
 ### 1. Chuẩn hóa độ ưu tiên đa nền tảng (`_map_priority`)
 - **Trên Windows:** Chuyển đổi các lớp ưu tiên của Windows API sang thang điểm chuẩn 0–5:
-  - `IDLE_PRIORITY_CLASS` $\rightarrow$ `0`
-  - `BELOW_NORMAL_PRIORITY_CLASS` $\rightarrow$ `1`
-  - `NORMAL_PRIORITY_CLASS` $\rightarrow$ `2`
-  - `ABOVE_NORMAL_PRIORITY_CLASS` $\rightarrow$ `3`
-  - `HIGH_PRIORITY_CLASS` $\rightarrow$ `4`
-  - `REALTIME_PRIORITY_CLASS` $\rightarrow$ `5`
-- **Trên Linux:** Giá trị `nice` của Linux chạy từ `-20` (ưu tiên cao nhất) đến `19` (ưu tiên thấp nhất) được ánh xạ tuyến tính về thang điểm 0–5:
-  $$\text{Priority Score} = \left\lfloor \frac{19 - \text{clamped\_nice}}{39} \times 5 \right\rceil$$
+  - `IDLE_PRIORITY_CLASS` → `0`
+  - `BELOW_NORMAL_PRIORITY_CLASS` → `1`
+  - `NORMAL_PRIORITY_CLASS` → `2`
+  - `ABOVE_NORMAL_PRIORITY_CLASS` → `3`
+  - `HIGH_PRIORITY_CLASS` → `4`
+  - `REALTIME_PRIORITY_CLASS` → `5`
+- **Trên Linux:** Giá trị `nice` của Linux chạy từ `-20` (ưu tiên cao nhất) đến `19` (ưu tiên thấp nhất) được kẹp trong khoảng `[-20, 19]` và ánh xạ tuyến tính về thang điểm 0–5:
+  $$\text{Priority Score} = \left\lfloor \frac{19 - \text{nice}}{39} \times 5 \right\rceil$$
 
 ### 2. Các trường dữ liệu thô (Raw Features)
 | Tên trường | Kiểu | Mô tả |
@@ -120,7 +120,7 @@ Trong `src/preprocess.py`:
    - Khử trùng lặp (drop duplicates) dữ liệu để tránh overfitting.
 2. **Kỹ thuật trích xuất đặc trưng (Feature Engineering):**
    - Tạo trường đặc trưng tổng hợp `combined_load_score` phản ánh sức ép tổng hợp lên hệ thống:
-     $$\text{combined\_load\_score} = (\text{priority\_level} \times 20.0) + (\text{cpu\_utilization} \times 1.2) + (\text{memory\_utilization} \times 0.5)$$
+     $$\text{Combined Load Score} = (\text{Priority Level} \times 20.0) + (\text{CPU Utilization} \times 1.2) + (\text{Memory Utilization} \times 0.5)$$
 3. **Chuẩn hóa (Normalization):**
    - Cung cấp hàm `normalize_features` sử dụng `StandardScaler` (Zero mean, Unit variance) khi cần thiết cho các mô hình nhạy cảm khoảng cách như KNN hoặc Logistic Regression.
 
@@ -343,9 +343,7 @@ Dự án cung cấp 2 cuốn sổ tay Jupyter có sẵn mã nguồn và kết qu
 
 ---
 
-## 👤 Thông tin tác giả & Giấy phép (Author & License)
+## 📄 Giấy phép (License)
 
-- **Tác giả:** [phunh1901](https://github.com/phunh1901)
-- **Email:** phunh1901@gmail.com
-- **Đơn vị / Dự án:** Hanoi University of Science and Technology (HUST) — *Operating Systems & Machine Learning for Scheduler (OS-ML4Scheduler)*
-- **Giấy phép:** Phân phối dưới giấy phép **MIT License**. Bạn được tự do sử dụng, chỉnh sửa và phân phối lại cho mục đích học tập và nghiên cứu.
+Dự án được phân phối dưới giấy phép **MIT License**. Bạn được tự do sử dụng, chỉnh sửa và phân phối lại cho mục đích học tập và nghiên cứu.
+
