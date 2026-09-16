@@ -3,8 +3,8 @@
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/ML-scikit--learn-orange.svg)](https://scikit-learn.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey.svg)](https://github.com/phunh1901/ml_for_Linux)
-[![Status](https://img.shields.io/badge/Status-Completed%20%2F%20Active-brightgreen.svg)](https://github.com/phunh1901/ml_for_Linux)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey.svg)](https://github.com/phunh1901/ml_for_Linux_Scheduler)
+[![Status](https://img.shields.io/badge/Status-Completed%20%2F%20Active-brightgreen.svg)](https://github.com/phunh1901/ml_for_Linux_Scheduler)
 
 > **ML Engine for Linux Scheduler (ML4Scheduler)** là hệ thống hỗ trợ định thời tiến trình (process scheduling) trong hệ điều hành bằng học máy (Machine Learning). Dự án thu thập telemetry tiến trình theo thời gian thực (CPU, RAM, Threads, Priority, Status), tiền xử lý, trích xuất đặc trưng và áp dụng các mô hình học máy (Decision Tree, Random Forest, Gradient Boosting, KNN, Logistic Regression, K-Means) để dự đoán mức độ ưu tiên điều phối của tiến trình vào 3 lớp quyết định: **`IMMEDIATELY SCHEDULE`**, **`NEXT SCHEDULE`**, và **`LATELY SCHEDULE`**.
 
@@ -277,8 +277,8 @@ Clone repository về máy và cài đặt các thư viện phụ thuộc:
 
 ```bash
 # Clone repository
-git clone https://github.com/phunh1901/ml_for_Linux.git
-cd ml_for_Linux
+git clone https://github.com/phunh1901/ml_for_Linux_Scheduler.git
+cd ml_for_Linux_Scheduler
 
 # Tạo môi trường ảo (khuyến nghị)
 python -m venv venv
